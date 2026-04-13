@@ -3,21 +3,18 @@ import Product from "../models/Product.model"
 
 
 export const getProducts = async(req: Request, res: Response) => {
-    try {
+
 //indicamos que obtenemos todos los elementos de "Product"
         const products = await Product.findAll({
-//Excluir elementos
-            attributes: {exclude: ["createdAt", "updatedAt"]}
+//Excluir elementos que nos manda la api(opcional)
+        attributes: {exclude: ["createdAt", "updatedAt"]}
         })
         res.json({data: products})
-    } catch (error) {
-        console.log(error);
 
-    }
 }
 
 export const getProductsById = async(req: Request, res: Response) => {
-    try {
+
 //Recordar que los params de la URL con string y product espera un numero por eso lo convertimos
        const id = Number(req.params.id)
 //findByPk es un método de Sequelize que sirve para buscar un registro por su clave primaria (Primary Key).
@@ -28,26 +25,17 @@ export const getProductsById = async(req: Request, res: Response) => {
             return res.status(404).json({
                 error: "Producto no encontrado"
             })
-       }
-            res.json({data: product})
 
-
-    } catch (error) {
-        console.log(error);
-
-    }
+        }
+        res.json({data: product})
 }
 
 
 export const createProduct = async (req: Request, res: Response) => {
-    try {
+
         const product = await Product.create(req.body)
-        res.json(product)
-    } catch (error) {
-        console.log(error);
-
-    }
-
+//Cuando se crea algo, su codigo de estatus es 201
+        res.status(201).json({data: product})
 }
 
 
@@ -77,12 +65,10 @@ export const updateAvailability = async (req: Request, res: Response) => {
                 error: "Producto no encontrado"
             })
        }
-
-       product.availability = req.body.availability
+       product.availability = !product.dataValues.availability
        await product.save()
 
         res.json({data: product})
-
 }
 
 export const deleteProduct = async (req: Request, res: Response) => {

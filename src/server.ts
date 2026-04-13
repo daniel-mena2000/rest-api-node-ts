@@ -1,6 +1,8 @@
 import express from "express";
 import router from "./router";
 import colors from "colors";
+import swaggerUi from 'swagger-ui-express'
+import { swaggerSpec } from './config/swagger'
 import db from "./config/db";
 
 //conectar a base de datos
@@ -11,7 +13,7 @@ async function connectBD() {
     try {
         await db.authenticate();
         await db.sync();
-        console.log(colors.bgGreen.black('Conexión a la BD exitosa 👍'));
+        //console.log(colors.bgGreen.black('Conexión a la BD exitosa 👍'));
     } catch (error) {
         console.log(error);
 
@@ -27,9 +29,9 @@ const server = express()
 //Leer datos de formularios
 server.use(express.json());
 
-
 server.use('/api/products', router);
 
-
+// Docs
+server.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 
 export default server;
