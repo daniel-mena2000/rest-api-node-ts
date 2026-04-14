@@ -4,7 +4,7 @@
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" width="40"/>
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg" width="40"/>
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" width="40"/>
-<img src="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+UmVuZGVyPC90aXRsZT48cGF0aCBkPSJNMTguMjYzLjAwN2MtMy4xMjEtLjE0Ny01Ljc0NCAyLjEwOS02LjE5MiA1LjA4Mi0uMDE4LjEzOC0uMDQ1LjI3Mi0uMDY3LjQwNS0uNjk2IDMuNzAzLTMuOTM2IDYuNTA3LTcuODI3IDYuNTA3LTEuMzg4IDAtMi42OTEtLjM1Ni0zLjgyNS0uOTc5YS4yMDI0LjIwMjQgMCAwIDAtLjMwMi4xNzhWMjRIMTJ2LTguOTk5YzAtMS42NTYgMS4zMzgtMyAyLjk4Ny0zaDIuOTg4YzMuMzgyIDAgNi4xMDMtMi44MTcgNS45Ny02LjI0NC0uMTItMy4wODQtMi42MS01LjYwMy01LjY4Mi01Ljc1Ii8+PC9zdmc+" width="40"/>
+<img src="./assets/render.svg" width="40" />
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sequelize/sequelize-original.svg" width="40"/>
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jest/jest-plain.svg" width="40"/>
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swagger/swagger-original.svg" width="40"/>
