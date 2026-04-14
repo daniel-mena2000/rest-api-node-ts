@@ -1,5 +1,3 @@
-//exit lo que hara es detener la ejecicion de algun codigo de node
-import {exit} from "node:process"
 //importamos esto por que necesitamos la instancia de Sequelize
 import db from "../config/db"
 

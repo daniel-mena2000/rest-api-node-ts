@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { body, param } from "express-validator";
-import { createProduct, deleteProduct, getProducts, getProductsById, updateAvailability, updateProduct } from "./handlers/product";
+import { createProduct, deleteProduct, getProducts, getProductsById, updateAvailability, updateProduct } from "./controllers/product.controller";
 import { handleInputErrors } from "./middlewares/validation";
 
 
