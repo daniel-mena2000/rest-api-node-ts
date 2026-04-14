@@ -4,7 +4,7 @@
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg" width="40"/>
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg" width="40"/>
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg" width="40"/>
-<img src="./assets/render.svg" width="40" />
+<img src="assets/render.svg" width="40" />
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sequelize/sequelize-original.svg" width="40"/>
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jest/jest-plain.svg" width="40"/>
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swagger/swagger-original.svg" width="40"/>
@@ -35,4 +35,4 @@
 - sequelize-typescript: integración de Sequelize con clases/decoradores de TypeScript.
 - pg-hstore: dependencia auxiliar usada por Sequelize en ciertos tipos de serialización.
 
-![Swagger](./assets/api-rest-swagger.png)
+![Swagger](assets/api-rest-swagger.png)
