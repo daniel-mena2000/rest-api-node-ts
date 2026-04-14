@@ -31,7 +31,7 @@ server.use(express.json());
 
 server.use('/api/products', router);
 
-// Docs
+// Ruta para iniciar swagger
 server.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec))
 
 export default server;
