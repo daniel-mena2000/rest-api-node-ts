@@ -12,20 +12,15 @@ import db from "../../config/db"
   })
 
 
-//Todo estos testing no se harian con una base de datos directa de la empresa si no con una que nos permita hacer estas pruebas ya que estamos enviando datso reales.
+
 
 describe('POST hacia /api/products', () => {
-//Testing de errores, cuando se crea un producto vacio
     it('debería mostrar un error de validación', async () => {
         const response = await request(server).post('/api/products').send({})
 
-//Entonces cuando este vacio esperamos un 404
         expect(response.status).toBe(400)
-//En este caso si esperamos un error
         expect(response.body).toHaveProperty('errors')
-//Si mando vacio el errors tiene que tener 4 mensajes, es decir 4 objetos dentro de errrors
         expect(response.body.errors).toHaveLength(4)
-//No esperamos un 404 ni 2 mensajes de ese errors
         expect(response.status).not.toBe(404)
         expect(response.body.errors).not.toHaveLength(2)
 
@@ -45,19 +40,13 @@ describe('POST hacia /api/products', () => {
         })
 
     it("Que devuelva que se creo un nuevo producto", async () => {
-//send para indicarle que informacion le vas a pasar a ese endpoint
         const response = await request(server).post('/api/products').send({
             name: 'Teclado - testing',
             price: 230,
             availability: true
         })
-//toBe para: number, string, boolean
-//Aparte de toBe existe toEqual que nos sirve para validacion profunda como objetos o arrays
             expect(response.status).toBe(201)
-//Si nuestra respuesta en el body tiene "data" significa que se creo el elemento
             expect(response.body).toHaveProperty('data')
-
-//Esto es lo que no esperamos de la respuesta
             expect(response.status).not.toBe(404)
             expect(response.status).not.toBe(200)
             expect(response.body).not.toHaveProperty('errors')
@@ -78,7 +67,6 @@ describe('GET hacia /api/products', () => {
         const response = await request(server).get('/api/products')
 
         expect(response.status).toBe(200)
-//Indicamos que tenemos que tener un JSON de respuesta
         expect(response.headers['content-type']).toMatch(/json/)
         expect(response.body).toHaveProperty('data')
         expect(response.body).not.toHaveProperty('errors')
@@ -95,7 +83,6 @@ describe('GET hacia /api/products/:id', () => {
 
         expect(response.status).toBe(404)
         expect(response.body).toHaveProperty('error')
-//Validamos el mensaje
         expect(response.body.error).toBe('Producto no encontrado')
     })
 
@@ -105,7 +92,6 @@ describe('GET hacia /api/products/:id', () => {
         expect(response.status).toBe(400)
         expect(response.body).toHaveProperty('errors')
         expect(response.body.errors).toHaveLength(1)
-//Entramos a errors para poder obtener la propiedad "msg"
         expect(response.body.errors[0].msg).toBe('ID no valido')
     })
 
@@ -125,7 +111,6 @@ describe('PUT hacia /api/products/:id', () => {
 
         expect(response.status).toBe(400)
         expect(response.body).toHaveProperty('errors')
-//toBeTruthy Verifica que no sea: false, 0, '', null, undefined, NaN
         expect(response.body.errors).toBeTruthy()
 //Esperamos 5 mensajes de error
         expect(response.body.errors).toHaveLength(5)

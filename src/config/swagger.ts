@@ -1,4 +1,3 @@
-//Aqui es donde colocaremos la información general de la API
 
 import swaggerJSDoc from "swagger-jsdoc";
 

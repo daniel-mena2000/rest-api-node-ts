@@ -4,9 +4,7 @@ import Product from "../models/Product.model"
 
 export const getProducts = async(req: Request, res: Response) => {
 
-//indicamos que obtenemos todos los elementos de "Product"
         const products = await Product.findAll({
-//Excluir elementos que nos manda la api(opcional)
         attributes: {exclude: ["createdAt", "updatedAt"]}
         })
         res.json({data: products})
@@ -15,12 +13,8 @@ export const getProducts = async(req: Request, res: Response) => {
 
 export const getProductsById = async(req: Request, res: Response) => {
 
-//Recordar que los params de la URL con string y product espera un numero por eso lo convertimos
        const id = Number(req.params.id)
-//findByPk es un método de Sequelize que sirve para buscar un registro por su clave primaria (Primary Key).
-//Entonces verifica si el id de los parametros de la URL coincide con la clave primaria de la base de datos
        const product = await Product.findByPk(id)
-//Verificamos que el Primary Key - id de exista en nuestra base de datos
        if (!product) {
             return res.status(404).json({
                 error: "Producto no encontrado"
@@ -34,7 +28,6 @@ export const getProductsById = async(req: Request, res: Response) => {
 export const createProduct = async (req: Request, res: Response) => {
 
         const product = await Product.create(req.body)
-//Cuando se crea algo, su codigo de estatus es 201
         res.status(201).json({data: product})
 }
 
@@ -47,7 +40,6 @@ export const updateProduct = async (req: Request , res: Response) => {
                 error: "Producto no encontrado"
             })
        }
-//importante agregar "update" para que solo actualice algun campo en especifico, como ejemplo solo "name", sin update actualizara la tabla pero la reescribira solo con ese campo y borrara lo demas, este update nos protege, ademas de las validaciones en el router, pero para actualizar un solo campo sin riesgo usamos PATCH y put nos sirve en este caso para actualizar todos los campos
          await product.update(req.body)
          await product.save()
 
@@ -55,7 +47,6 @@ export const updateProduct = async (req: Request , res: Response) => {
             res.json({data: product})
 }
 
-//PATCH se usa para modificar partes de un recurso, en este caso hicimos una funcion que solo actualice: availability
 
 export const updateAvailability = async (req: Request, res: Response) => {
        const id = Number(req.params.id)

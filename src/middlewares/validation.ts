@@ -5,9 +5,7 @@ export const handleInputErrors = (req: Request, res: Response, next: NextFunctio
     const errors = validationResult(req)
 
     if (!errors.isEmpty()) {
-//400 cuando envias un req incorrecto, y los errores los pasamos a array
         return res.status(400).json({ errors: errors.array() })
     }
-//"next" practicamente lo que dice es, "Ya termine vete a la siguiente funcion"
     next()
 }
